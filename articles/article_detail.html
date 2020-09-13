@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 {% load staticfiles %}
+<div>
 {{ article.code }}
 {% if article.title %}
   {{ article.title }}
 {% endif %}
+</div>
 {% endblock %}
