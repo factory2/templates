@@ -1,0 +1,6 @@
+{% load staticfiles %}
+    {% if articles %}
+	    {% for article in articles %}
+                    <a href="{% url 'article_detail' code=article.code %}">{{ article.code }}<a>
+	    {% endfor %}
+    {% endif %}
