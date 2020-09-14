@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-    {% if articles %}
-	    {% for article in articles %}
-                    <a href="{% url 'article_detail' code=article.code %}" class="button">{{ article.code }}<a>
-	    {% endfor %}
-    {% endif %}
+<br>
+  {% if articles %}
+    {% for article in articles %}
+      <a class="btn btn-secondary btn-lg btn-block" href="{% url 'article_detail' code=article.code %}" role="button">{{ article.code }}</a>
+    {% endfor %}
+  {% endif %}
 {% endblock %}
