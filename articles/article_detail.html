@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
 {% load staticfiles %}
 <div>
   {% if article.title %}
     <h1 class="text-center">{{ article.title }}</h1>
   {% endif %}
-  <h2 class="text-center">{{ article.code }}</h2>
+    <h2>{% trans "Code" %}: {{ article.code }}</h2>
   {% if article.basket %}
-    <h3>Basket: {{ article.basket.title }}</h3>
+    <h3>{% trans "Basket" %}: {{ article.basket.title }}</h3>
   {% endif %}
   {% if article.parameter %}
-    <h3>Parameter: {{ article.parameter.title }}</h3>
+    <h3>{% trans "Parameter" %}: {{ article.parameter.title }}</h3>
   {% endif %}
 </div>
 {% endblock %}
