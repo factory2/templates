@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<br>
+  {% if thermal_deburring_articles %}
+    {% for thermal_deburring_article in thermal_deburring_articles %}
+      <a class="btn btn-secondary btn-lg btn-block" href="{% url 'thermal_deburring_article_detail' slug=thermal_deburring_article.slug %}" role="button">{{ thermal_deburring_article.slug }}</a>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
