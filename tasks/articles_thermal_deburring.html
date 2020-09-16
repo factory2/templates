@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+<br>
+<h1 class="text-center">{% trans "Thermal deburning" %}</h1>
+<br>
+  {% if articles_thermal_deburring %}
+    {% for article_thermal_deburring in articles_thermal_deburring %}
+      <a class="btn btn-secondary btn-lg btn-block" href="{% url 'article_thermal_deburring_detail' slug=article_thermal_deburring.slug %}" role="button">{{article_thermal_deburring.slug }}</a>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

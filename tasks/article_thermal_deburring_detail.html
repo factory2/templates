@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+{% load staticfiles %}
+<br>
+<div>
+	<h1 class="text-center">{% trans "Thermal deburning" %}</h1>
+	<br>
+  {% if article_thermal_deburring.code.title %}
+    <h1 class="text-center">{{ article_thermal_deburring.code.title }}</h1>
+  {% endif %}
+    <h2>{% trans "Code" %}: {{ article_thermal_deburring.slug }}</h2>
+  {% if article_thermal_deburring.basket_deburring %}
+    <h3>{% trans "Basket" %}: {{ article_thermal_deburring.basket_deburring.title }}</h3>
+  {% endif %}
+  {% if article_thermal_deburring.parameter_deburring %}
+    <h3>{% trans "Parameter" %}: {{ article_thermal_deburring.parameter_deburring.title }}</h3>
+  {% endif %}
+</div>
+{% endblock %}

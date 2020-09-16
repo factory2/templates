@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 {% block content %}
+<br>
+<h1 class="text-center">{% trans "All articles" %}</h1>
 <br>
   {% if articles %}
     {% for article in articles %}
