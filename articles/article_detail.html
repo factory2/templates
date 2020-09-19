@@ -26,14 +26,14 @@
     {% endif %}
     {% if article.image3 %}
     <div class="carousel-item">
-	{% thumbnail article.image3 "200x100" as im %}
+	{% thumbnail article.image3 "x480" as im %}
             <img src="{{ im.url }}" style="max-height:280px" alt="image3">
 	{% endthumbnail %}
     </div>
     {% endif %}
     {% if article.image4 %}
     <div class="carousel-item">
-	{% thumbnail article.image4 "200x100" as im %}
+	{% thumbnail article.image4 "x480" as im %}
             <img src="{{ im.url }}" style="max-height:280px" alt="image3">
 	{% endthumbnail %}
     </div>
