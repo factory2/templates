@@ -1,7 +1,7 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load i18n %}
 {% block content %}
-{% load staticfiles %}
 <br>
 <div>
 	<h1 class="text-center">{% trans "Thermal deburning" %}</h1>
@@ -9,12 +9,27 @@
   {% if article_thermal_deburring.code.title %}
     <h1 class="text-center">{{ article_thermal_deburring.code.title }}</h1>
   {% endif %}
-    <h2>{% trans "Code" %}: {{ article_thermal_deburring.slug }}</h2>
+</div>
+
+<table class="table table-hover table-dark">
+  <tbody>
+    <tr>
+      <th scope="row">{% trans "Code" %}</th>
+      <td>{{ article_thermal_deburring.slug }}</td>
+    </tr>
   {% if article_thermal_deburring.basket_deburring %}
-    <h3>{% trans "Basket" %}: {{ article_thermal_deburring.basket_deburring.title }}</h3>
+    <tr>
+      <th scope="row">{% trans "Basket" %}</th>
+      <td>{{ article_thermal_deburring.basket_deburring.title }}</td>
+    </tr>
   {% endif %}
   {% if article_thermal_deburring.parameter_deburring %}
-    <h3>{% trans "Parameter" %}: {{ article_thermal_deburring.parameter_deburring.title }}</h3>
+    <tr>
+      <th scope="row">{% trans "Parameter" %}</th>
+      <td>{{ article_thermal_deburring.parameter_deburring.title }}</td>
+    </tr>
   {% endif %}
-</div>
+  </tbody>
+</table>
+
 {% endblock %}
