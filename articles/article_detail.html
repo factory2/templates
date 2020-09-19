@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% load thumbnail %}
 {% block content %}
 <br>
 <div>
@@ -8,6 +9,46 @@
     <h1 class="text-center">{{ article.title }}</h1>
   {% endif %}
     <h2>{% trans "Code" %}: {{ article.code }}</h2>
+  {% if article.image1 %}
+<div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner text-center">
+    <div class="carousel-item active">
+	{% thumbnail article.image1 "x480" as im %}
+	    <img src="{{ im.url }}" style="max-height:280px" alt="image1">
+	{% endthumbnail %}
+    </div>
+    {% if article.image2 %}
+    <div class="carousel-item">
+	{% thumbnail article.image2 "x480" as im %}
+            <img src="{{ im.url }}" style="max-height:280px" alt="image2">
+        {% endthumbnail %} 
+    </div>
+    {% endif %}
+    {% if article.image3 %}
+    <div class="carousel-item">
+	{% thumbnail article.image3 "200x100" as im %}
+            <img src="{{ im.url }}" style="max-height:280px" alt="image3">
+	{% endthumbnail %}
+    </div>
+    {% endif %}
+    {% if article.image4 %}
+    <div class="carousel-item">
+	{% thumbnail article.image4 "200x100" as im %}
+            <img src="{{ im.url }}" style="max-height:280px" alt="image3">
+	{% endthumbnail %}
+    </div>
+    {% endif %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  {% endif %}
   {% if article.description %}
     {% trans "Description" %}: {{ article.description }}
   {% endif %}
