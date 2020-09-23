@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,10 +22,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 	    <li class="nav-item{% if articles or article %} active{% endif %}">
-		    <a class="nav-link" href="/">All articles{% if articles or article %} <span class="sr-only">(current)</span>{% endif %}</a>
+		    <a class="nav-link" href="/">{% trans 'All articles' %}{% if articles or article %} <span class="sr-only">(current)</span>{% endif %}</a>
       </li>
       <li class="nav-item{% if articles_thermal_deburring or article_thermal_deburring %} active{% endif %}">
-	      <a class="nav-link" href="/tasks/articles_thermal_deburring">Thermal deburring{% if articles_thermal_deburring or article_thermal_deburring %} <span class="sr-only">(current)</span>{% endif %}</a>
+	      <a class="nav-link" href="/tasks/articles_thermal_deburring">{% trans 'Thermal deburring' %}{% if articles_thermal_deburring or article_thermal_deburring %} <span class="sr-only">(current)</span>{% endif %}</a>
       </li>
     </ul>
   </div>
