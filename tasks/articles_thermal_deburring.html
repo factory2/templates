@@ -18,6 +18,7 @@
       <a class="btn btn-secondary btn-lg btn-block" href="{% url 'article_thermal_deburring_detail' slug=article_thermal_deburring.slug %}" role="button">{{article_thermal_deburring.slug }}</a>
     {% endfor %}
 {% if request.user.is_staff %}
+<br>
 <div class="text-right">
 <a href="{% url 'article_thermal_deburring_new' %}">
 <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -27,4 +28,5 @@
 </div>
 {% endif %}
   {% endif %}
+  <br>
 {% endblock %}
