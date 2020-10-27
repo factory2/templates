@@ -2,6 +2,12 @@
 {% load staticfiles %}
 {% load i18n %}
 {% block content %}
+<div>
+	<h1 class="text-center">{% trans "Thermal deburring" %}</h1>
+  {% if article_thermal_deburring.code.title %}
+    <h1 class="text-center">{{ article_thermal_deburring.code.title }}</h1>
+  {% endif %}
+</div>
     {% if request.user.is_staff %}
       <div class="text-right">
 	<a href="{% url 'article_thermal_deburring_edit' slug=article_thermal_deburring.slug %}">
@@ -10,15 +16,9 @@
 	    </svg>
 	</a>
       </div>
+      <br>
     {% endif %}
-<div>
-	<h1 class="text-center">{% trans "Thermal deburring" %}</h1>
-	<br>
-  {% if article_thermal_deburring.code.title %}
-    <h1 class="text-center">{{ article_thermal_deburring.code.title }}</h1>
-  {% endif %}
-</div>
-
+    <br>
 <table class="table table-hover table-dark">
   <tbody>
     <tr>
