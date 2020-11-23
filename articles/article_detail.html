@@ -5,7 +5,7 @@
 {% block content %}
 <div>
   <h1 class="text-center">{% trans "All articles" %}</h1>
-    {% if request.user.is_staff %}
+  {% if request.user.is_staff %}
       <div class="text-right">
 	<a href="{% url 'article_edit' code=article.code %}">
 	    <svg height="2em" viewBox="0 0 16 16" class="bi bi-pen-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,6 @@
 	    </svg>
 	</a>
       </div>
-    {% endif %}
     <br>
     {% if article.title %}
       <h1 class="text-center">{{ article.title }}</h1>
@@ -69,5 +68,10 @@
     {% if article.description %}
       {% trans "Description" %}: {{ article.description }}
     {% endif %}
+  {% else %}
+    <div class="alert alert-danger" role="alert">
+      You are not staff!
+    </div>
+  {% endif %}
 </div>
 {% endblock %}

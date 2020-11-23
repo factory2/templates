@@ -12,7 +12,6 @@
         </svg>
       </a>
     </div>
-    {% endif %}
     <br>
     {% if articles_thermal_deburring %}
       {% for article_thermal_deburring in articles_thermal_deburring %}
@@ -28,6 +27,11 @@
         </a>
       </div>
       {% endif %}
+    {% endif %}
+    {% else %}
+      <div class="alert alert-danger" role="alert">
+        You are not staff!
+      </div>
     {% endif %}
   </div>
 {% endblock %}
