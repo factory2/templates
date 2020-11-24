@@ -36,9 +36,11 @@
           {% endif %}
           </tbody>
         </table>
-	<br>
-	{{ article_thermal_deburring.description }}
-	<br>
+	{% if article_thermal_deburring.description %}
+	  <br>
+	  {{ article_thermal_deburring.description }}
+	  <br>
+	{% endif %}
 	<br>
         <a href="{% url 'article_detail' code=article_thermal_deburring.slug %}" type="button" class="btn btn-info">{% trans "Article detail" %}</a>
     {% else %}
