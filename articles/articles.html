@@ -14,7 +14,7 @@
     <br>
     {% if articles %}
       {% for article in articles %}
-        <a class="btn btn-secondary btn-lg btn-block" href="{% url 'article_detail' code=article.code %}" role="button">{{ article.code }}</a>
+        <a class="btn btn-secondary btn-lg btn-block text-left" href="{% url 'article_detail' code=article.code %}" role="button">{{ article.code }}</a>
       {% endfor %}
       <br>
       <div class="text-right">
