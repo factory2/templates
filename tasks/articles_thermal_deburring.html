@@ -15,7 +15,7 @@
       <br>
       {% if articles_thermal_deburring %}
         {% for article_thermal_deburring in articles_thermal_deburring %}
-          <a class="btn btn-secondary btn-lg btn-block text-left" href="{% url 'article_thermal_deburring_detail' slug=article_thermal_deburring.slug %}" role="button">{{article_thermal_deburring.slug }}</a>
+          <a class="btn btn-secondary btn-lg btn-block text-left" href="{% url 'article_thermal_deburring_detail' article_thermal_deburring.article.code %}" role="button">{{article_thermal_deburring.article.code }}</a>
         {% endfor %}
         <br>
 	<div class="text-right">
