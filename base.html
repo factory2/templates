@@ -30,6 +30,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item{% if articles or article %} active{% endif %}" href="{% url 'articles'%}">{% trans 'Articles' %}</a>
             <a class="dropdown-item{% if pallets or pallet %} active{% endif %}" href="{% url 'pallets'%}">Pallets</a>
+            <a class="dropdown-item{% if pallets_thermal_deburred %} active{% endif %}" href="{% url 'pallets_thermal_deburred'%}">Pallets thermal deburred</a>
           </div>
         </div>
       </li>
