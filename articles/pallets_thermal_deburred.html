@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+   <h1 class="text-center">{% trans "Thermal deburred pallets" %}</h1>
+  {% if request.user.is_staff %}
+    <br>
+    {% if pallets_thermal_deburred %}
+      {% for pallet_thermal_deburred in pallets_thermal_deburred %}
+        <div class="card text-white bg-dark text-center">
+          <div class="card-header">
+            {{ pallet_thermal_deburred.pallet.article.code }}
+          </div> 
+          <div class="card-body">
+		  <h5 class="card-title">{{ pallet_thermal_deburred.pallet.article.title }}</h5>
+	    <p class="card-text">{{ pallet_thermal_deburred.pallet.quantity }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          <div class="card-footer text-muted">
+            {{ pallet_thermal_deburred.thermal_deburred_date }}
+          </div>
+	</div>
+	<br>
+      {% endfor %}
+      <br>
+    {% endif %}
+    <br>
+  {% else %}
+    <div class="alert alert-danger" role="alert">
+      You are not staff!
+    </div>
+  {% endif %}
+{% endblock %}
