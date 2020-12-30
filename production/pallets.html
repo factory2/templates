@@ -21,8 +21,10 @@
             {{ pallet.article.code }}
           </div> 
           <div class="card-body">
+            {% if pallet.article.title %}
 		  <h5 class="card-title">{{ pallet.article.title }}</h5>
-	    <p class="card-text">{{ pallet.quantity }}</p>
+            {% endif %}
+		  <p class="card-text"><span class="text-muted">{% trans "Quantity" %}: </span>{{ pallet.quantity }}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
           <div class="card-footer text-muted">
