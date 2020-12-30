@@ -13,9 +13,12 @@
             {{ pallet_thermal_deburred.pallet.article.code }}
           </div> 
           <div class="card-body">
-		  <h5 class="card-title">{{ pallet_thermal_deburred.pallet.article.title }}</h5>
-	    <p class="card-text">{{ pallet_thermal_deburred.pallet.quantity }}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            {% if pallet_thermal_deburred.pallet.article.title %}
+              <h5 class="card-title">
+                {{ pallet_thermal_deburred.pallet.article.title }}</h5>
+            {% endif %}
+            <span class="text-muted">
+              {% trans "Quantity" %}: </span> {{ pallet_thermal_deburred.pallet.quantity }}
           </div>
           <div class="card-footer text-muted">
             {{ pallet_thermal_deburred.thermal_deburred_date }}
