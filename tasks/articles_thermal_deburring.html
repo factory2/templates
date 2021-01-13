@@ -5,6 +5,10 @@
   <div>
     <h1 class="text-center">{% trans "Thermal deburring" %}</h1>
     {% if request.user.is_staff %}
+    <div class="text-right">
+      <a class="btn btn-success" href="{% url 'pallet_thermal_deburred_new' %}">{% trans "Done pallet" %}</a>
+    </div>
+      <br>
       <div class="text-right">
         <a href="{% url 'article_thermal_deburring_new' %}">
           <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
