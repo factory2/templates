@@ -6,10 +6,10 @@
     {% if request.user.is_staff %}
       <h1 class="text-center">{% trans "Thermal deburring" %}</h1>
       <div class="row">
-        <div class="col-sm text-left">
+        <div class="col text-left">
           <a class="btn btn-success" href="{% url 'pallet_thermal_deburred_new' %}">{% trans "Done pallet" %}</a>
         </div>
-        <div class="col-sm text-right">
+        <div class="col text-right">
           <a href="{% url 'article_thermal_deburring_new' %}">
             <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
