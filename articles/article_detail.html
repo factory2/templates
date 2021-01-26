@@ -65,6 +65,11 @@
         </a>
       </div>
     {% endif %}
+    <br>
+      {% if article.weight %}
+        {{ article.weight }}g
+      {% endif %}
+    <br>
     {% if article.description %}
       {% trans "Description" %}: {{ article.description }}
     {% endif %}
