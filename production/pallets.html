@@ -25,9 +25,13 @@
               <h5 class="card-title">{{ pallet.article.title }}</h5>
             {% endif %}
             <p class="card-text">
-              <span class="text-muted">
-                {% trans "Quantity" %}: </span> {{ pallet.quantity }}
+              <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}
 	    </p>
+	    {% if pallet.weight %}
+              <p class="card-text">
+                <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }} kg
+              </p>
+	    {% endif %}
           </div>
           <div class="card-footer text-muted">
             {{ pallet.created_date }}
