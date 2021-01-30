@@ -23,7 +23,7 @@
 	    {% else %}
               <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet_thermal_deburred.pallet.quantity }}
             {% endif %}
-	      {% if pallet_thermal_deburred.quantity_no_ok %}
+	    {% if pallet_thermal_deburred.quantity_no_ok %}
 	      <p class="card-text">
 	        <span class="text-muted">No ok: </span>{{ pallet_thermal_deburred.quantity_no_ok }}
 	      </p>
@@ -31,6 +31,10 @@
             {% if pallet_thermal_deburred.weight %}
               <p class="card-text">
                 <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet_thermal_deburred.weight }} kg
+              </p>
+	    {% elif pallet_thermal_deburred.pallet.weight %}
+              <p class="card-text">
+                <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet_thermal_deburred.pallet.weight }} kg
               </p>
             {% endif %}
           </div>
