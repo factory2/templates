@@ -27,11 +27,11 @@
             <p class="card-text">
               <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}
 	    </p>
-	    {% if pallet.weight %}
+            {% if pallet.weight %}
               <p class="card-text">
                 <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }} kg
               </p>
-	    {% endif %}
+            {% endif %}
           </div>
           <div class="card-footer text-muted">
             {{ pallet.created_date }}

@@ -15,10 +15,20 @@
           <div class="card-body">
             {% if pallet_thermal_deburred.pallet.article.title %}
               <h5 class="card-title">
-                {{ pallet_thermal_deburred.pallet.article.title }}</h5>
+                {{ pallet_thermal_deburred.pallet.article.title }}
+	      </h5>
             {% endif %}
-            <span class="text-muted">
-              {% trans "Quantity" %}: </span> {{ pallet_thermal_deburred.pallet.quantity }}
+            <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet_thermal_deburred.quantity }}
+	    {% if pallet_thermal_deburred.quantity_no_ok %}
+	      <p class="card-text">
+	        <span class="text-muted">No ok: </span>{{ pallet_thermal_deburred.quantity_no_ok }}
+	      </p>
+	    {% endif %}
+            {% if pallet_thermal_deburred.weight %}
+              <p class="card-text">
+                <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet_thermal_deburred.weight }} kg
+              </p>
+            {% endif %}
           </div>
           <div class="card-footer text-muted">
 		  <p>{% trans "Production date" %}: <span class="text-white">{{ pallet_thermal_deburred.pallet.created_date }}</span></p>
