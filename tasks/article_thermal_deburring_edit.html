@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {% if request.user.is_staff %}
-    <h1 class=text-center>New article</h1>
+    <h1 class=text-center>New recipe</h1>
     <br>
         <form enctype="multipart/form-data" method="POST" class="article_thermal_deburring-form">{% csrf_token %}
             {{ form|crispy }}
