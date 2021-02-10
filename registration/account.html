@@ -3,7 +3,7 @@
 {% block content %}
 <h1 class="text-center">Account</h1>
 {% if user.is_authenticated %}
-  {% trans "Hi" %} {{ user.username }}!
+{% trans "Hi" %} {% if user.last_name and user.first_name %}{{ user.first_name }} {{ user.last_name }}{% elif user.firstname %}{{ user.first_name }}{% elif user.last_name %}{{ user.last_name }}{% else %}{{ user.username }}{% endif %}!
     <p><a href="{% url 'logout' %}">{% trans "Log Out" %}</a></p>
 {% else %}
     <p>{% trans "You are not logged in" %}: <a href="{% url 'login' %}">{% trans "Log In" %}</a></p>
