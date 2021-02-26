@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+  <h1 class="text-center">{% trans "Departments" %}</h1>
+  {% if request.user.is_staff %}
+    {% for permission in request.user.get_all_permissions %}
+      {% if permission == "departments.add_department" %}
+        <div class="text-right">
+          <a href="{% url 'department_new' %}">
+            <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	      <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <br>
+    {% if departments %}
+      {% for department in departments %}
+      <a class="btn btn-secondary btn-lg btn-block text-left" href="{% url 'department_detail' slug=department.slug %}" role="button">{{ department.title }}</a>
+      {% endfor %}
+      <br>
+    {% endif %}
+    <br>
+  {% else %}
+    <div class="alert alert-danger" role="alert">
+      You are not staff!
+    </div>
+  {% endif %}
+{% endblock %}
