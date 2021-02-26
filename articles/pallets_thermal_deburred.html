@@ -37,6 +37,12 @@
                 <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet_thermal_deburred.pallet.weight }} kg
               </p>
             {% endif %}
+	    {% if pallet_thermal_deburred.pallet.department %}
+              <p class="card-text">
+                {{ pallet_thermal_deburred.pallet.department }}
+              </p>
+            {% endif %}
+ 
           </div>
           <div class="card-footer text-muted">
 		  <p>{% trans "Production date" %}: <span class="text-white">{{ pallet_thermal_deburred.pallet.created_date }}</span></p>
