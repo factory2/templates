@@ -32,6 +32,12 @@
                 <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }} kg
               </p>
             {% endif %}
+	    {% if pallet.department %}
+              <p class="card-text">
+                {{ pallet.department }}
+              </p>
+            {% endif %}
+ 
           </div>
           <div class="card-footer text-muted">
             {{ pallet.created_date }}
