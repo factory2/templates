@@ -42,7 +42,7 @@
         <br>
       {% endif %}
       <br>
-      <p>{% trans "Last change" %}: {{ article_thermal_deburring.last_change }}</p>
+      <p>{% trans "Last change" %}: {{ article_thermal_deburring.last_change }} {% if article_thermal_deburring.employee %}{{ article_thermal_deburring.employee }}{% endif %}</p>
       <br>
       <a href="{% url 'article_detail' article_thermal_deburring.article.code %}" type="button" class="btn btn-info">
         {% trans "Article detail" %}
