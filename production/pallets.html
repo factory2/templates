@@ -23,7 +23,7 @@
           <div class="card-body">
             {% if pallet.thermal_deburred == True %}
 	      <p class="text-right">
-	        <a href="#" class="btn btn-outline-secondary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">Thermal debarred</a>
+	        <a href="#" class="btn btn-outline-secondary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">{% trans "Thermal deburred" %}</a>
 	      </p>
 	    {% endif %}
             {% if pallet.article.title %}
