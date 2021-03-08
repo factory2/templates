@@ -21,11 +21,6 @@
             {{ pallet.article.code }}
           </div> 
           <div class="card-body">
-            {% if pallet.thermal_deburred == True %}
-	      <p class="text-right">
-	        <a href="#" class="btn btn-outline-secondary btn-sm disabled" tabindex="-1" role="button" aria-disabled="true">{% trans "Thermal deburred" %} {{ pallet.employee_thermal_deburring }}</a>
-	      </p>
-	    {% endif %}
             {% if pallet.article.title %}
               <h5 class="card-title">{{ pallet.article.title }}</h5>
             {% endif %}
@@ -46,6 +41,16 @@
           <div class="card-footer text-muted">
             {{ pallet.created_date }}
           </div>
+            {% if pallet.thermal_deburred == True %}
+	      <p>
+	        {% trans "Thermal deburred" %}
+                {{ pallet.employee_thermal_deburring }}
+                {{ pallet.thermal_deburred_date }}
+		{{ pallet.quantity_thermal_deburred_no_ok }}
+		{{ pallet.quantity_thermal_deburred }}
+                {{ pallet.weight_thermal_deburred }}
+	      </p>
+	    {% endif %}
 	</div>
 	<br>
       {% endfor %}
