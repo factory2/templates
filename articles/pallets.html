@@ -50,6 +50,8 @@
 		{{ pallet.quantity_thermal_deburred }}
                 {{ pallet.weight_thermal_deburred }}
 	      </p>
+	    {% else %}
+              <a class="btn btn-success" href="{% url 'pallet_thermal_deburred_new' pk=pallet.pk %}">{% trans "Done pallet" %}</a>
 	    {% endif %}
 	</div>
 	<br>
