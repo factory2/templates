@@ -5,9 +5,6 @@
   <div>
     {% if request.user.is_staff %}
       <h1 class="text-center">{% trans "Thermal deburring" %}</h1>
-      <div class="text-right">
-          <a href="{% url 'pallets_thermal_deburred'%}" class="btn btn-dark">{% trans "Pallets thermal deburred" %}</a>
-      </div>
       <br>
       <div class="text-right">
         <a href="{% url 'article_thermal_deburring_new' %}">
