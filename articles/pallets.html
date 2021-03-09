@@ -25,11 +25,11 @@
               <h5 class="card-title">{{ pallet.article.title }}</h5>
             {% endif %}
             <p class="card-text">
-	    <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}{% if pallet.thermal_deburred == True and pallet.quantity_thermal_deburred_no_ok != 0 %} - {{ pallet.quantity_thermal_deburred_no_ok }} = {{ pallet.quantity_thermal_deburred }}{% endif %}
+	    <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}{% if pallet.thermal_deburred == True and pallet.quantity_thermal_deburred_no_ok != 0 %} - <span data-toggle="tooltip" data-placement="top" title="{% trans "Quantity articles thermal deburred no ok" %}">{{ pallet.quantity_thermal_deburred_no_ok }}</span> = {{ pallet.quantity_thermal_deburred }}{% endif %}
 	    </p>
             {% if pallet.weight %}
               <p class="card-text">
-	      <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }}{% if pallet.thermal_deburred == True and pallet.weight_thermal_deburred_no_ok != 0 %} - {{ pallet.weight_thermal_deburred_no_ok }} = {{ pallet.weight_thermal_deburred }}{% endif %} kg
+	      <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }}{% if pallet.thermal_deburred == True and pallet.weight_thermal_deburred_no_ok != 0 %} - <span data-toggle="tooltip" data-placement="top" title="{% trans "Weight articles thermal deburred no ok" %}">{{ pallet.weight_thermal_deburred_no_ok }}</span> = {{ pallet.weight_thermal_deburred }}{% endif %} kg
               </p>
             {% endif %}
 	    {% if pallet.department %}
@@ -38,16 +38,20 @@
               </p>
             {% endif %}
           </div>
-          <div class="card-footer text-muted">
+          <div class="card-footer text-info">
 	    {% trans "Produced by" %}
             {{ pallet.employee }}
-            {{ pallet.created_date }}
+	    <p>
+              {{ pallet.created_date }}
+	    </p>
             {% if pallet.thermal_deburred == True %}
-	      <p>
+              <div class="card-footer text-success">
 	        {% trans "Thermal deburred by" %}
                 {{ pallet.employee_thermal_deburring }}
-                {{ pallet.thermal_deburred_date }}
-	      </p>
+	        <p>
+                  {{ pallet.thermal_deburred_date }}
+	        </p>
+              </div>
 	    {% endif %}
           </div>
           {% if pallet.thermal_deburred == False and pallet.article.for_thermal_deburring == True %}
