@@ -29,7 +29,7 @@
 	    </p>
             {% if pallet.weight %}
               <p class="card-text">
-                <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }} kg
+	      <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }}{% if pallet.thermal_deburred == True and pallet.weight_thermal_deburred_no_ok != 0 %} - {{ pallet.weight_thermal_deburred_no_ok }} = {{ pallet.weight_thermal_deburred }}{% endif %} kg
               </p>
             {% endif %}
 	    {% if pallet.department %}
