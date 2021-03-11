@@ -3,51 +3,48 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
-   <h1 class="text-center">{% trans " Pallets thermal deburred" %}</h1>
+  <h1 class="text-center">{% trans "Pallets thermal deburred" %}</h1>
   {% if request.user.is_staff %}
     <br>
-    {% if pallets_thermal_deburred %}
-      {% for pallet_thermal_deburred in pallets_thermal_deburred %}
+    {% if pallets %}
+      {% for pallet in pallets %}
         <div class="card text-white bg-dark text-center">
           <div class="card-header">
-            {{ pallet_thermal_deburred.pallet.article.code }}
+            {{ pallet.article.code }}
           </div> 
           <div class="card-body">
-            {% if pallet_thermal_deburred.pallet.article.title %}
-              <h5 class="card-title">
-                {{ pallet_thermal_deburred.pallet.article.title }}
-	      </h5>
+            {% if pallet.article.title %}
+              <h5 class="card-title">{{ pallet.article.title }}</h5>
             {% endif %}
-	    {% if pallet_thermal_deburred.quantity %}
-              <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet_thermal_deburred.quantity }}
-	    {% else %}
-              <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet_thermal_deburred.pallet.quantity }}
-            {% endif %}
-	    {% if pallet_thermal_deburred.quantity_no_ok %}
-	      <p class="card-text">
-	        <span class="text-warning">No ok: </span>{{ pallet_thermal_deburred.quantity_no_ok }}
-	      </p>
-	    {% endif %}
-            {% if pallet_thermal_deburred.weight %}
+            <p class="card-text">
+	    <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}{% if pallet.thermal_deburred == True and pallet.quantity_thermal_deburred_no_ok != 0 %} - <span data-toggle="tooltip" data-placement="top" title="{% trans "Quantity articles thermal deburred no ok" %}">{{ pallet.quantity_thermal_deburred_no_ok }}</span> = {{ pallet.quantity_thermal_deburred }}{% endif %}
+	    </p>
+            {% if pallet.weight %}
               <p class="card-text">
-                <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet_thermal_deburred.weight }} kg
-              </p>
-	    {% elif pallet_thermal_deburred.pallet.weight %}
-              <p class="card-text">
-                <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet_thermal_deburred.pallet.weight }} kg
+	      <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }}{% if pallet.thermal_deburred == True and pallet.weight_thermal_deburred_no_ok != 0 %} - <span data-toggle="tooltip" data-placement="top" title="{% trans "Weight articles thermal deburred no ok" %}">{{ pallet.weight_thermal_deburred_no_ok }}</span> = {{ pallet.weight_thermal_deburred }}{% endif %} kg
               </p>
             {% endif %}
-	    {% if pallet_thermal_deburred.pallet.department %}
+	    {% if pallet.department %}
               <p class="card-text">
-                {{ pallet_thermal_deburred.pallet.department }}
+                {{ pallet.department }}
               </p>
             {% endif %}
- 
           </div>
-          <div class="card-footer text-muted">
-		  <p>{% trans "Production date" %}: <span class="text-white">{{ pallet_thermal_deburred.pallet.created_date }}</span></p>
-		  <p>{% trans "Deburred date" %}: <span class="text-white">{{ pallet_thermal_deburred.thermal_deburred_date }}</span></p>
-		  <p>{% trans "Employee" %}: <span class="text-white">{{ pallet_thermal_deburred.employee }}</span></p>
+          <div class="card-footer text-info">
+	    {% trans "Produced by" %}
+            {{ pallet.employee }}
+	    <p>
+              {{ pallet.created_date }}
+	    </p>
+            {% if pallet.thermal_deburred == True %}
+              <div class="card-footer text-success">
+	        {% trans "Thermal deburred by" %}
+                {{ pallet.employee_thermal_deburring }}
+	        <p>
+                  {{ pallet.thermal_deburred_date }}
+	        </p>
+              </div>
+	    {% endif %}
           </div>
 	</div>
 	<br>

@@ -6,6 +6,8 @@
   <h1 class="text-center">{% trans "All pallets" %}</h1>
   {% if request.user.is_staff %}
     <br>
+    <a href="{% url 'pallets_thermal_deburred' %}" type="button" class="btn btn-dark">Pallets thermal deburred</a>
+    <br>
     <div class="text-right">
       <a href="{% url 'pallet_new' %}">
         <svg xmlns="http://www.w3.org/2000/svg" height="46" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
