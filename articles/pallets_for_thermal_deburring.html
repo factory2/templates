@@ -3,11 +3,11 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
-  <h1 class="text-center">{% trans "Pallets thermal deburred" %}</h1>
+  <h1 class="text-center">{% trans "Pallets for thermal deburring" %}</h1>
   {% if request.user.is_staff %}
     <br>
     <a href="{% url 'pallets' %}" type="button" class="btn btn-dark">Pallets</a>
-    <a href="{% url 'pallets_for_thermal_deburring' %}" type="button" class="btn btn-dark">Pallets for thermal deburring</a>
+    <a href="{% url 'pallets_thermal_deburred' %}" type="button" class="btn btn-dark">Pallets thermal deburred</a>
     <br>
     <br>
     {% if pallets %}
@@ -21,11 +21,11 @@
               <h5 class="card-title">{{ pallet.article.title }}</h5>
             {% endif %}
             <p class="card-text">
-	    <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}{% if pallet.thermal_deburred == True and pallet.quantity_thermal_deburred_no_ok != 0 %} - <span data-toggle="tooltip" data-placement="top" title="{% trans "Quantity articles thermal deburred no ok" %}">{{ pallet.quantity_thermal_deburred_no_ok }}</span> = {{ pallet.quantity_thermal_deburred }}{% endif %}
+	    <span class="text-muted">{% trans "Quantity" %}: </span> {{ pallet.quantity }}
 	    </p>
             {% if pallet.weight %}
               <p class="card-text">
-	      <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }}{% if pallet.thermal_deburred == True and pallet.weight_thermal_deburred_no_ok != 0 %} - <span data-toggle="tooltip" data-placement="top" title="{% trans "Weight articles thermal deburred no ok" %}">{{ pallet.weight_thermal_deburred_no_ok }}</span> = {{ pallet.weight_thermal_deburred }}{% endif %} kg
+	      <span class="text-muted">{% trans "Weight" %}: </span> {{ pallet.weight }} kg
               </p>
             {% endif %}
 	    {% if pallet.department %}
@@ -40,16 +40,8 @@
 	    <p>
               {{ pallet.created_date }}
 	    </p>
-            {% if pallet.thermal_deburred == True %}
-              <div class="card-footer text-success">
-	        {% trans "Thermal deburred by" %}
-                {{ pallet.employee_thermal_deburring }}
-	        <p>
-                  {{ pallet.thermal_deburred_date }}
-	        </p>
-              </div>
-	    {% endif %}
           </div>
+          <a class="btn btn-success" href="{% url 'pallet_thermal_deburred_new' pk=pallet.pk %}">{% trans "Thermal deburring" %}</a>
 	</div>
 	<br>
       {% endfor %}
