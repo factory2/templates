@@ -6,6 +6,10 @@
     {% if request.user.is_staff %}
       <h1 class="text-center">{% trans "Thermal deburring" %}</h1>
       <br>
+      <a href="{% url 'pallets_for_thermal_deburring' %}" type="button" class="btn btn-dark">Pallets for thermal deburring</a>
+      <a href="{% url 'pallets_thermal_deburred' %}" type="button" class="btn btn-dark">Pallets thermal deburred</a>
+      <br>
+      <br>
       <div class="text-right">
         <a href="{% url 'article_thermal_deburring_new' %}">
           <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
