@@ -70,6 +70,10 @@
       {{ article.weight }} g
     {% endif %}
     <br>
+    {% if article_quantity_produced %}
+      {{ article_quantity_produced }} produced pieces
+    {% endif %}
+    <br>
     {% if article.description %}
       {% trans "Description" %}: {{ article.description }}
     {% endif %}
