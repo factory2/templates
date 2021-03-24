@@ -74,6 +74,10 @@
       {{ article_quantity_produced }} produced pieces
     {% endif %}
     <br>
+    {% if article.zamak %}
+      {{ article.zamak.title }}
+    {% endif %}
+    <br>
     {% if article.description %}
       {% trans "Description" %}: {{ article.description }}
     {% endif %}

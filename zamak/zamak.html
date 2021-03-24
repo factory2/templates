@@ -2,30 +2,24 @@
 {% load staticfiles %}
 {% load i18n %}
 {% block content %}
-{% if request.user.is_staff %}
-<div class="text-right">
-  <a href="{% url 'zama_new' %}">
-    <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-    </svg>
-  </a>
-</div>
-{% endif %}
-<h1 class="text-center">Zamak</h1>
-<br>
-{% if zamak %}
-  {% for zama in zamak %}
-    <a class="btn btn-secondary btn-lg btn-block" href="{% url 'zama_detail' slug=zama.slug %}" role="button">{{ zama.slug }}</a>
-  {% endfor %}
-{% if request.user.is_staff %}
-<br>
-<div class="text-right">
-  <a href="{% url 'zama_new' %}">
-    <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-    </svg>
-  </a>
-</div>
-{% endif %}
-{% endif %}
+  {% if request.user.is_staff %}
+    <h1 class="text-center">Zamak</h1>
+    {% for permission in request.user.get_all_permissions %}
+      {% if permission == "zamak.add_zamak" %}
+        <div class="text-right">
+          <a href="{% url 'zama_new' %}">
+            <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <br>
+    {% if zamak %}
+      {% for zama in zamak %}
+        <a class="btn btn-secondary btn-lg btn-block" href="{% url 'zama_detail' slug=zama.slug %}" role="button">{{ zama.title }}</a>
+      {% endfor %}
+    {% endif %}
+  {% endif %}
 {% endblock %}
