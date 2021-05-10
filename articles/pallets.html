@@ -15,7 +15,7 @@
     <!-- Modal -->
     <div class="modal fade" id="allPalletsModal" tabindex="-1" aria-labelledby="allPalletsModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content bg-info">
+        <div class="modal-content bg-secondary">
           <div class="modal-header">
             <h5 class="modal-title" id="allPalletsModalLabel">Show all pallets?</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -28,6 +28,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <a href="{% url "pallets" %}" type="button" class="btn btn-primary">All pallets</a>
+            <a href="{% url "pallets_thermal_deburred" %}" type="button" class="btn btn-success">All thermal deburred pallets</a>
           </div>
         </div>
       </div>
