@@ -7,10 +7,13 @@
   <h1 class="text-center">{{ heading }}</h1>
   {% if date %}
     <h4 class="text-info text-center">{{ date }}</h4>
+  {% else %}
+    <h4><br></h4>
   {% endif %}
     <br>
-    <a href="{% url 'pallets_for_thermal_deburring' %}" type="button" class="btn btn-lg btn-dark">Pallets for thermal deburring</a>
-    <a href="{% url 'pallets_thermal_deburred_current_month' year=current_year month=current_month %}" type="button" class="btn btn-lg btn-dark">Pallets thermal deburred</a>
+    <p><a class="btn btn-dark btn-lg" href="{% url 'pallets_current_month' year=current_year month=current_month %}">Pallets</a></p>
+    <p><a href="{% url 'pallets_for_thermal_deburring' %}" type="button" class="btn btn-lg btn-dark">Pallets for thermal deburring</a><p>
+    <p><a href="{% url 'pallets_thermal_deburred_current_month' year=current_year month=current_month %}" type="button" class="btn btn-lg btn-dark">Pallets thermal deburred</a></p>
     <br>
     <br>
     <div class="text-right">
