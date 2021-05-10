@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% block background_image %}
+background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Fonderie-lingot-zamak.jpg/1200px-Fonderie-lingot-zamak.jpg');
+{% endblock %}
 {% block content %}
   {% if request.user.is_staff %}
     <h1 class="text-center">Zamak</h1>
