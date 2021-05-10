@@ -6,8 +6,8 @@
     {% if request.user.is_staff %}
       <h1 class="text-center">{% trans "Thermal deburring" %}</h1>
       <br>
-      <a href="{% url 'pallets_for_thermal_deburring' %}" type="button" class="btn btn-dark">Pallets for thermal deburring</a>
-      <a href="{% url 'pallets_thermal_deburred' %}" type="button" class="btn btn-dark">Pallets thermal deburred</a>
+      <a href="{% url 'pallets_for_thermal_deburring' %}" type="button" class="btn btn-lg btn-dark">Pallets for thermal deburring</a>
+      <a href="{% url 'pallets_thermal_deburred_current_month' year=current_year month=current_month %}" type="button" class="btn btn-lg btn-dark">Pallets thermal deburred</a>
       <br>
       <br>
       <div class="text-right">
