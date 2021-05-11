@@ -66,9 +66,6 @@
       </div>
     {% endif %}
     <br>
-    {% if article.for_thermal_deburring %}
-      <p><a class="btn btn-success" href="{% url 'article_thermal_deburring_detail' article_code=article.code %}">Thermal deburring recipe</a></p>
-    {% endif %}
     {% if article.weight %}
       {{ article.weight }} g
     {% endif %}
@@ -83,6 +80,9 @@
     <br>
     {% if article.description %}
       {% trans "Description" %}: {{ article.description }}
+    {% endif %}
+    {% if article.for_thermal_deburring %}
+      <p><a class="btn btn-success" href="{% url 'article_thermal_deburring_detail' article_code=article.code %}">Thermal deburring recipe</a></p>
     {% endif %}
   {% else %}
     <div class="alert alert-danger" role="alert">
