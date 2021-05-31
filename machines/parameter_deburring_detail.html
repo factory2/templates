@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load thumbnail %}
+{% block content %}
+<div>
+  {% if request.user.is_staff %}
+    <h1 class="text-center">{% trans "Parameter deburring" %}</h1>
+    <br>
+      <h1 class="text-center">{{ parameter_deburring.title }}</h1>
+    <br>
+    <p class="text-center">{{ parameter_deburring.description }}</p>
+  {% else %}
+    <div class="alert alert-danger" role="alert">
+      You are not staff!
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -2,31 +2,63 @@
 {% load staticfiles %}
 {% load i18n %}
 {% block content %}
-<h1 class="text-center">{% trans "Thermal deburrers" %}</h1>
-{% if request.user.is_staff %}
-  <div class="text-right">
-    <a href="{% url 'thermal_deburrer_new' %}">
-      <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-	  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-      </svg>
-    </a>
-  </div>
-{% endif %}
-<br>
-  {% if thermal_deburrers %}
-    {% for thermal_deburrer in thermal_deburrers %}
-      <a class="btn btn-secondary btn-lg btn-block" href="{% url 'thermal_deburrer_detail' slug=thermal_deburrer.slug %}" role="button">{{ thermal_deburrer.slug }}</a>
+  {% if request.user.is_staff %}
+    <h1 class="text-center">{% trans "Thermal deburrers" %}</h1>
+    {% for permission in request.user.get_all_permissions %}
+      {% if permission == "machines.add_thermaldeburrer" %}
+        <div class="text-right">
+          <a href="{% url 'thermal_deburrer_new' %}">
+            <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          </a>
+        </div>
+        <br>
+      {% endif %}
     {% endfor %}
-{% if request.user.is_staff %}
-<br>
-<div class="text-right">
-  <a href="{% url 'thermal_deburrer_new' %}">
-    <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-	  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-    </svg>
-  </a>
-</div>
-{% endif %}
-<br>
+    {% if thermal_deburrers %}
+      {% for thermal_deburrer in thermal_deburrers %}
+        <a class="btn btn-secondary btn-lg btn-block" href="{% url 'thermal_deburrer_detail' pk=thermal_deburrer.pk %}" role="button">{{ thermal_deburrer.name }}</a>
+      {% endfor %}
+      <br>
+    {% endif %}
+    <h2 class="text-center">{% trans "Baskets deburring" %}</h2>
+    {% for permission in request.user.get_all_permissions %}
+      {% if permission == "machines.add_thermaldeburrer" %}
+        <div class="text-right">
+          <a href="{% url 'basket_deburring_new' %}">
+            <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          </a>
+        </div>
+        <br>
+      {% endif %}
+    {% endfor %}
+    {% if baskets_deburring %}
+      {% for basket_deburring in baskets_deburring %}
+        <a class="btn btn-secondary btn-lg btn-block" href="{% url 'basket_deburring_detail' pk=basket_deburring.pk %}" role="button">{{ basket_deburring.title }}</a>
+      {% endfor %}
+    {% endif %}
+    <br>
+    <h2 class="text-center">{% trans "Parameters deburring" %}</h2>
+    {% for permission in request.user.get_all_permissions %}
+      {% if permission == "machines.add_thermaldeburrer" %}
+        <div class="text-right">
+          <a href="{% url 'parameter_deburring_new' %}">
+            <svg height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          </a>
+        </div>
+        <br>
+      {% endif %}
+    {% endfor %}
+    {% if parameters_deburring %}
+      {% for parameter_deburring in parameters_deburring %}
+        <a class="btn btn-secondary btn-lg btn-block" href="{% url 'parameter_deburring_detail' pk=parameter_deburring.pk %}" role="button">{{ parameter_deburring.title }}</a>
+      {% endfor %}
+      <br>
+    {% endif %}
   {% endif %}
 {% endblock %}
